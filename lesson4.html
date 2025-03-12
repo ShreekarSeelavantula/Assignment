@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .q_second{
+         background-color: orange;
+         border-style: solid;
+      }
+      .q_third{
+         background-color: yellow;
+         border-style: solid;
+      }
+   </style>
+</head>
+<body>
+   <div class="q_first"></div>
+
+   <script>
+     let a=`
+      <p>WELCOME</p>
+      <p>buttons</p>
+      <button>Click Me</button>
+      <button>Shreekar</button>
+      <button>Biryani</button>
+      <p>Hello World!</p>
+      <p>Hello World!</p>
+      <p>Today I went to the grocery store to buy some eggs and vegetables.</p>
+      <button class = "q_second">Add To Cart</button>
+      <button class = "q_third">Buy Now</button>
+      <br>
+      <br>  
+      <p>LAST EXCERCISE</p>
+      <p>Adults Plain Cotton T-Shirt</p>
+      <button class = "q_second"  onclick = "alert('Added')"  >Add To Cart</button>
+      <button class = "q_third"  onclick = "alert('Loading...')"  >Buy Now</button>
+    `;
+
+
+    document.querySelector('.q_first').innerHTML = a;
+   </script>
+</body>
+</html>
