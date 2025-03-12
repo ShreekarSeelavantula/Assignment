@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="q_first"></div>
+   <p class="q_fun6"></p>
+   <p class="q_fun7"></p>
+   <p class="q_fun8"></p>
+
+
+
+    <script>
+
+
+
+function fun1()
+ {
+    alert('Good Morning');
+ }
+
+ function fun2()
+ {
+  alert('Shreekar');
+ }
+
+ function fun3()
+ {
+    alert(5 +10);
+ }
+ function fun4()
+ {
+    alert(20-5);
+ }
+ function fun5()
+ {
+    alert(2+2-5);
+ }
+ function fun6()
+ {
+    document.querySelector('.q_fun6').innerHTML = "Good Morning";
+ }
+
+ function fun7()
+ {
+    document.querySelector('.q_fun7').innerHTML = "Shreekar";
+
+ }
+ function fun8()
+ {
+    let b = 10;
+    b+=8;
+    b+=20;
+    document.querySelector('.q_fun8').innerHTML = `the total cost is ${b}`;
+
+ }
+ function fun9()
+ {
+
+    let b=230;
+    document.querySelector('.q_fun8').innerHTML = `the total cost is ${b}`;
+
+ }
+
+ function fun10()
+ {
+    document.body.innerHTML = " ";
+ }
+
+
+
+ let a = "" , function_array=[fun1 ,fun2 , fun3 , fun4 , fun5 , fun6, fun7 , fun8 , fun9 , fun10];
+
+
+ for(let i = 0 ; i<=9;i++)
+{
+    a+=`<button class="q_second" style = " display : block ; ">problem ${i+1}A</button>
+    `;
+}
+document.querySelector('.q_first').innerHTML= a;
+
+
+let button_node = document.querySelectorAll('.q_second');
+
+
+ for(let i=0; i<=button_node.length-1 ; i++)
+{
+    button_node[i].addEventListener("click" , function_array[i]);
+}
+
+
+
+
+
+
+
+
+
+ 
+
+
+    </script>
+</body>
+</html>
