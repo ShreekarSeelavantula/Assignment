@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .q_seven {
+            display: inline-block;
+            
+        }
+    </style>
+</head>
+<body>
+    <button class="q_second">+4</button>
+    <button class="q_third">+5</button>
+    <button class="q_four">Remove one Item</button>
+    <button class="q_five">-2</button>
+    <button class="q_six">-3</button>
+    <br><br><br>
+    <p>CALCULATOR</p>
+    <input type="text" class="q_display" disabled>
+    <br>
+    <button class="q_seven">1</button>
+    <button class="q_seven">2</button>
+    <button class="q_seven">3</button>
+    <br>
+    <button class="q_seven">4</button>
+    <button class="q_seven">5</button>
+    <button class="q_seven">6</button>
+    <br>
+    <button class="q_seven">7</button>
+    <button class="q_seven">8</button>
+    <button class="q_seven">9</button>
+    <br>
+    <button class="q_seven">+</button>
+    <button class="q_seven">-</button>
+    <button class="q_seven">/</button>
+    <button class="q_seven">*</button>
+    <button class="q_seven">=</button>
+    <button class="q_seven">C</button>
+
+    <script>
+        let d = 0, cal = "";
+
+        document.querySelector('.q_second').onclick = () => {
+            d += 4;
+            console.log(d);
+        };
+
+        document.querySelector('.q_third').onclick = () => {
+            d += 5;
+            console.log(d);
+        };
+
+        document.querySelector('.q_four').onclick = () => {
+            d -= 1;
+            console.log(d);
+        };
+
+        document.querySelector('.q_five').onclick = () => {
+            d -= 2;
+            console.log(d);
+        };
+
+        document.querySelector('.q_six').onclick = () => {
+            d -= 3;
+            console.log(d);
+        };
+
+        function appendValue(value) {
+            cal += value;
+            document.querySelector('.q_display').value = cal;
+        }
+
+        let buttons = document.querySelectorAll('.q_seven');
+
+        for (let i = 0; i < buttons.length - 2; i++) {
+            buttons[i].onclick = function() {
+                appendValue(buttons[i].innerText);
+            };
+        }
+
+        buttons[buttons.length - 2].onclick = function() {
+            document.querySelector('.q_display').value = eval(cal);
+            cal = document.querySelector('.q_display').value;
+        };
+
+        buttons[buttons.length - 1].onclick = function() {
+            cal = "";
+            document.querySelector('.q_display').value = "";
+        };
+    </script>
+</body>
+</html>
