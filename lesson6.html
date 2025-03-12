@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class=".q_first"></div>
+
+    <script>
+        let time=6 ;
+        if(time>=6 && time<=12)
+    {
+        alert("Good Morning");
+    }
+    else if(time >=13 && time <=17)
+    {
+        alert("Good Afrwenoon");
+    }
+    else{
+        alert("Good Night");
+    }
+
+    time = 14;
+    if(time>=6 && time<=12)
+    {
+        alert("Good Morning");
+    }
+    else if(time >=13 && time <=17)
+    {
+        alert("Good Afrwenoon");
+    }
+    else{
+        alert("Good Night");
+    }
+
+    let name = "Shreekar";
+    if(time>=6 && time<=12)
+    {
+        alert("Good Morning"+name);
+    }
+    else if(time >=13 && time <=17)
+    {
+        alert("Good Afrwenoon"+name);
+    }
+    else{
+        alert("Good Night" + name);
+    }
+
+    let age = 5 , isnotHoliday = true ;
+
+    if((age<=6 || age>=76) && (isnotHoliday))
+    {
+        alert("eligile for discount");
+    }
+    else{
+        alert("Not Eligible");
+    }
+
+
+    let variable = Mathrandom() , r , guess = "head" ;
+
+    if(variable < 0.5)
+    {
+
+        alert("Heads");
+        r = HEADS;
+    }
+    else{
+        alert("Tails");
+        r = Tails;
+
+    }
+
+    if(variable === guess)
+    {
+        alert("you win")
+    }
+    else{
+        alert("you loose");
+    }
+
+    let ternary =(variable === guess)?"You Win":"you loose";
+    ; 
+    </script>
+</body>
+</html>
