@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="q_first"></div>
+   <p class="q_fun6"></p>
+   <p class="q_fun7"></p>
+   <p class="q_fun8"></p>
+
+
+
+    <script>
+
+let celcius , fahrenheit;
+
+
+function fun1()
+ {
+    
+console.log(`My name is :`);
+ }
+
+ function fun2()
+ {
+   console.log("Shreekar");
+ }
+
+ function fun3()
+ {
+    let c  = "Shreekar" , n="My name is :";
+console.log(n+c);
+ }
+ function fun4()
+ {
+    let coffee  = 5 , bagel =3;
+    console.log("Total Cost : "+"{coffee + bagel}");
+ }
+ function fun5()
+ {
+    let coffee  = 5 , bagel =3;
+    console.log(`Total Cost : ${coffee + bagel}`); 
+ }
+ function fun6()
+ {
+    let coffee  = 5 , bagel =3;
+    let string1  = `Total Cost : ${coffee + bagel}`; 
+    alert(string1);
+ }
+
+ function fun7()
+ {    let coffee  = 5 , bagel =3;
+
+    alert(`Total Cost : ${coffee + bagel}`);
+
+ }
+ function fun8()
+ {
+    alert("Total Cost : "+"8.90\n"+"Thank you  , come again");
+
+
+ }
+ function fun9()
+ {
+
+    alert(`Items (${2 + 2}): $${(2 * 2095 + 2 * 799) / 100}`);
+
+ }
+
+ function fun10()
+ {
+    alert(`Shipping & handling: $${(499 + 499) / 100}`);
+ }
+
+ function fun11()
+ {
+    alert(`Total before tax: $${(2 * 2095 + 2 * 799 + 499 + 499) / 100}`);
+ }
+
+
+ function fun12()
+ {
+    
+   alert(`Estimated tax (10%): $${Math.round((2 * 2095 + 2 * 799 + 499 + 499) * 0.1) / 100}`);
+ }
+
+ 
+
+ let a = "" , function_array=[fun1 ,fun2 , fun3 , fun4 , fun5 , fun6, fun7 , fun8 , fun9 , fun10 ,fun11 , fun12];
+
+
+ for(let i = 0 ; i<=12;i++)
+{
+    a+=`<button class="q_second" style = " display : block ; ">problem ${i+1}A</button>
+    `;
+}
+document.querySelector('.q_first').innerHTML= a;
+
+
+let button_node = document.querySelectorAll('.q_second');
+
+
+ for(let i=0; i<=button_node.length-1 ; i++)
+{
+    button_node[i].addEventListener("click" , function_array[i]);
+}
+
+
+
+
+
+
+
+
+
+ 
+
+
+    </script>
+</body>
+</html>
