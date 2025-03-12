@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let f,c;
+
+        function greet()
+        {
+            alert('Hellow!');
+        }
+        function greet_name(name)
+        {
+            if(name === true)
+           {alert('Hellow!'+name);}
+           else{ alert('Undefined');}
+
+        }
+        greet();
+        greet();
+        greet();
+        greet();
+        greet();
+
+        let name = "Krishna";
+        greet_name(name);
+
+        function f_to_c(f)
+        {
+          c = (f-32)*5/9;
+          return c;
+        }
+
+        function c_to_f(c)
+        {
+           f = (c*(9/5))+32;
+           return f;
+        }
+
+        console.log(f_to_c(86));
+        console.log(c_to_f(72));
+
+        function ToCelsius(fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+      }
+      console.log(ToCelsius(86));
+
+
+      function ToFahrenheit(celsius) {
+        return (celsius * 9 / 5) + 32;
+      }
+
+      function ToCelsius(fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+      }
+
+      function c(degrees, unit) {
+        if (unit === 'C') {
+          const result = ToFahrenheit(degrees);
+          return `${result}F`;
+        } else if (unit === 'F') {
+          const result = ToCelsius(degrees);
+          return `${result}C`;
+        }
+      }
+
+      console.log(c(25, 'C'));
+      console.log(c(86, 'F'));
+
+
+      function c(length, a, b) {
+        if (a === 'km' && b === 'miles') {
+          return `${length / 1.6} miles`;
+        } else if (a === 'miles' && b === 'km') {
+          return `${length * 1.6} km`;
+
+        
+        } else if (from === to) {
+          return `${length} ${to}`;
+        }
+      }
+
+      console.log(c(50, 'miles', 'km'));
+      console.log(c(32, 'km', 'miles'));
+      console.log(c(50, 'km', 'km'));
+
+
+    </script>
+</body>
+</html>
