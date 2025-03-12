@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cart Quantity</title>
+  </head>
+  <body>
+    <button onclick="
+      console.log(`${c}`);
+    ">Show Quantity</button>
+
+    <button onclick="
+      if (c + 1 > 10) {
+        alert('full');
+      } else {
+        c++;
+        console.log(`${c}`);
+      }
+    ">Add to Cart</button>
+
+    <button onclick="
+      if (c + 2 > 10) {
+        alert('full');
+      } else {
+        c += 2;
+        console.log(` ${c}`);
+      }
+    ">+2</button>
+
+    <button onclick="
+      if (c + 3 > 10) {
+        alert('full');
+      } else {
+        c = c + 3;
+        console.log(`${c}`);
+      }
+    ">+3</button>
+
+    <button onclick="
+      if (c + 4 > 10) {
+        alert('full');
+      } else {
+        c += 4;
+        console.log(`${c}`);
+      }
+    ">+4</button>
+
+    <button onclick="
+      if (c + 5 > 10) {
+        alert('full');
+      } else {
+        c += 5;
+        console.log(`${c}`);
+      }
+    ">+5</button>
+
+    <button onclick="
+      if (c - 1 < 0) {
+        alert('Not enough');
+      } else {
+        c--;
+        console.log(`${c}`);
+      }
+    ">Remove from cart</button>
+
+    <button onclick="
+      if (c - 2 < 0) {
+        alert('Not enough');
+      } else {
+        c -= 2;
+        console.log(`${c}`);
+      }
+    ">-2</button>
+
+    <button onclick="
+      if (c - 3 < 0) {
+        alert('Not enough');
+      } else {
+        c -= 3;
+        console.log(`${c}`);
+      }
+    ">-3</button>
+
+    <button onclick="
+      c = 0;
+      console.log('reset.');
+      console.log(`${c}`);
+    ">Reset Cart</button>
+
+    <script>
+      let c = 0;
+    </script>
+  </body>
+</html>
