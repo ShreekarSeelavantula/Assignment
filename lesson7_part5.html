@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>
+      <button onclick="a('1')">1</button>
+      <button onclick="a('2')">2</button>
+      <button onclick="a('3')">3</button>
+      <button onclick="a(' + ')">+</button>
+    </p>
+
+    <p>
+      <button onclick="a('4')">4</button>
+      <button onclick="a('5')">5</button>
+      <button onclick="a('6')">6</button>
+      <button onclick="a(' - ')">-</button>
+    </p>
+
+    <p>
+      <button onclick="a('7')">7</button>
+      <button onclick="a('8')">8</button>
+      <button onclick="a('9')">9</button>
+      <button onclick="a(' * ')">*</button>
+    </p>
+
+    <p>
+      <button onclick="a('0')">0</button>
+      <button onclick="a('.')">.</button>
+      <button onclick="c()">=</button>
+      <button onclick="a(' / ')">/</button>
+    </p>
+
+    <p>
+      <button onclick="c()">Clear</button>
+    </p>
+
+    <script>
+      let calc = '';
+
+      function a(value) {
+        calc += value;
+        console.log(calc);
+      }
+
+      function c() {
+        calc = eval(calc);
+        console.log(calc);
+      }
+
+      function c() {
+        calc = '';
+        console.log(calc);
+      }
+    </script>
+  </body>
+</html>
