@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+      function c(length, a, b) {
+        if (a === 'km' && b === 'miles') return `${length / 1.6} ${b}`;
+        if (a === 'km' && b === 'ft') return `${length * 3281} ${b}`;
+        if (a === 'miles' && b === 'km') return `${length * 1.6} ${b}`;
+        if (a === 'miles' && b === 'ft') return `${length * 5280} ${b}`;
+        if (a === 'ft' && b === 'km') return `${length / 3281} ${b}`;
+        if (a === 'ft' && b === 'miles') return `${length / 5280} ${b}`;
+        if (a === b) return `${length} ${b}`;
+      }
+
+      console.log(c(50, 'miles', 'km'));
+      console.log(c(32, 'km', 'miles'));
+      console.log(c(50, 'km', 'km'));
+    </script>
+  </body>
+</html>
