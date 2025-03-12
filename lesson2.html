@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="q_first"></div>
+   <p class="q_fun6"></p>
+   <p class="q_fun7"></p>
+   <p class="q_fun8"></p>
+
+
+
+    <script>
+
+let celcius , fahrenheit;
+
+
+function fun1()
+ {
+    alert(`The total cost is : ${1*10 + 3*8 + 1*5}`);
+ }
+
+ function fun2()
+ {
+    alert(`The total cost is : ${3*(1*10 + 3*8 + 1*5)}`); 
+}
+
+ function fun3()
+ {
+    alert(`The total cost is : ${18.50 +(2*7.50)}`); 
+ }
+ function fun4()
+ {
+    alert(`The total tax on the total cost is : ${10/100 *(18.50 +(2*7.50))}`); 
+ }
+ function fun5()
+ {
+    alert(`The total tax on the total cost is : ${20/100 *(18.50 +(2*7.50))}`); 
+ }
+ function fun6()
+ {
+    alert((2095 + 799 + 1899) / 100);
+ }
+
+ function fun7()
+ {
+    alert((2095 + 799 + 1899 + 499) / 100);
+
+ }
+ function fun8()
+ {
+    alert(Math.round(((2095 + 799 + 1899 + 499) / 100)*10/100));
+
+
+ }
+ function fun9()
+ {
+
+    alert(`the total cost is : ${(2095 + 799 + 1899 + 499) / 100 + Math.round((2095 + 799 + 1899 + 499) * 0.1) / 100}`);
+
+ }
+
+ function fun10()
+ {
+    alert(`with flooring he number from 2.8 to 2 : ${Math.round(2.8)}`);
+ }
+
+ function fun11()
+ {
+    alert(`with flooring he number from 2.3 to 3 : ${Math.ceil(2.3)}`);
+ }
+
+
+ function fun12()
+ {
+    celcius  = 25;
+    fahrenheit = (celcius *9/5 )+32;
+    celcius = (fahrenheit-32) * 5/9;
+   alert(`So now converting 100 Kelvin into celcius : ${fahrenheit}`);
+ }
+
+ function fun13()
+ {
+    fahrenheit  = 86;
+    fahrenheit = (celcius *9/5 )+32;
+    celcius = (fahrenheit-32) * 5/9;
+   alert(`So now converting 100 Kelvin into celcius : ${celcius}`);
+ }
+
+ function fun14()
+ {
+    celcius  = -5;
+    fahrenheit = (celcius *9/5 )+32;
+    celcius = (fahrenheit-32) * 5/9;
+   alert(`So now converting 100 Kelvin into celcius : ${fahrenheit}`);
+ }
+
+ let a = "" , function_array=[fun1 ,fun2 , fun3 , fun4 , fun5 , fun6, fun7 , fun8 , fun9 , fun10 ,fun11 , fun12 , fun13,fun14];
+
+
+ for(let i = 0 ; i<=12;i++)
+{
+    a+=`<button class="q_second" style = " display : block ; ">problem ${i+1}A</button>
+    `;
+}
+document.querySelector('.q_first').innerHTML= a;
+
+
+let button_node = document.querySelectorAll('.q_second');
+
+
+ for(let i=0; i<=button_node.length-1 ; i++)
+{
+    button_node[i].addEventListener("click" , function_array[i]);
+}
+
+
+
+
+
+
+
+
+
+ 
+
+
+    </script>
+</body>
+</html>
