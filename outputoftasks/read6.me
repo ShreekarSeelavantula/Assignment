@@ -1,0 +1,60 @@
+1. continue Statement
+Purpose:
+Skips the current iteration of a loop and moves to the next one.
+
+Behavior:
+When the loop hits a continue, it does not execute the remaining code in the current iteration and jumps to the next cycle.
+
+Useful Example:
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) {
+    continue; // Skip logging 3
+  }
+  console.log(i);
+}
+// Output: 1, 2, 4, 5
+
+
+2. break Statement
+Purpose:
+Exits the loop entirely when a condition is met.
+
+Behavior:
+Once break is hit, the loop terminates immediately.
+
+Useful Example:
+for (let i = 1; i <= 5; i++) {
+  if (i === 4) {
+    break; // Stop at 4
+  }
+  console.log(i);
+}
+// Output: 1, 2, 3
+
+
+3. Loop from 1 to 20 (with continue & break)
+for (let i = 1; i <= 20; i++) {
+  if (i % 5 === 0) {
+    continue; // Skip multiples of 5
+  }
+  if (i > 15) {
+    break; // Exit loop after 15
+  }
+  console.log(i);
+}
+
+
+4. Challenge: Array with Conditions
+const numbers = [10, 5, 8, 20, 3, 15, 25];
+
+for (const num of numbers) {
+  if (num > 12) {
+    console.log("Found a large number!");
+    break;
+  }
+  if (num === 5) {
+    console.log("Skipping 5!");
+    continue;
+  }
+  console.log(num);
+}

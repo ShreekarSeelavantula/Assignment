@@ -1,0 +1,59 @@
+ Closure Explained
+A closure is a feature in JavaScript where an inner function has access to:
+
+its own scope,
+
+the outer function’s variables, and
+
+the global scope.
+
+In your example, increment and decrement both form closures over the variable count defined in setupCounter. Even after setupCounter finishes executing, those inner functions retain access to count because of the closure.
+
+That’s why:
+
+counterOne and counterTwo have independent count values.
+
+Their counters don’t interfere with each other, even though they use the same logic.
+
+
+✅ createGreeting Example
+function createGreeting(greeting) {
+  return function(name) {
+    return `${greeting}, ${name}!`;
+  };
+}
+
+// Usage:
+const sayHello = createGreeting("Hello");
+console.log(sayHello("Alice")); // "Hello, Alice!"
+console.log(sayHello("Bob"));   // "Hello, Bob!"
+
+const sayHi = createGreeting("Hi");
+console.log(sayHi("Charlie"));  // "Hi, Charlie!"
+
+
+
+
+✅ createSecretHolder Challenge
+function createSecretHolder(secret) {
+  let hiddenSecret = secret;
+
+  return {
+    getSecret: function() {
+      return hiddenSecret;
+    },
+    setSecret: function(newSecret) {
+      hiddenSecret = newSecret;
+    }
+  };
+}
+
+// Usage:
+const secretHolder = createSecretHolder("top-secret");
+
+console.log(secretHolder.getSecret()); // "top-secret"
+secretHolder.setSecret("classified");
+console.log(secretHolder.getSecret()); // "classified"
+
+// You CANNOT access `hiddenSecret` directly
+console.log(secretHolder.hiddenSecret); // undefined

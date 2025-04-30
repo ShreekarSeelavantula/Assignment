@@ -1,0 +1,62 @@
+✅ How JavaScript Handles Function Calls with Varying Arguments
+In JavaScript, functions are flexible:
+
+If fewer arguments are passed than declared parameters, the missing ones become undefined.
+
+If more arguments are passed, they’re simply ignored unless captured using the arguments object or rest parameter.
+
+function flexibleFunction(a, b, ...rest) {
+  console.log("a:", a);
+  console.log("b:", b);
+  console.log("rest:", rest);
+}
+
+
+
+And these calls:
+
+flexibleFunction(1);
+// a: 1, b: undefined, rest: []
+
+flexibleFunction(1, 2);
+// a: 1, b: 2, rest: []
+
+flexibleFunction(1, 2, 3, 4, 5);
+// a: 1, b: 2, rest: [3, 4, 5]
+
+
+✅ What is the Rest Parameter?
+The rest parameter (...rest) allows a function to accept an indefinite number of arguments as an array.
+
+Syntax:
+function myFunc(a, b, ...rest) {
+  // rest is an array of extra arguments beyond a and b
+}
+
+
+✅ sumAll Function using Rest Parameter
+
+function sumAll(...numbers) {
+  return numbers.reduce((sum, current) => sum + current, 0);
+}
+
+// Usage:
+console.log(sumAll(1, 2, 3));       // 6
+console.log(sumAll(10, 20, 30, 40)); // 100
+console.log(sumAll());              // 0
+
+
+
+✅ Challenge: processArguments
+function processArguments(primaryFunc, ...args) {
+  return primaryFunc(...args);
+}
+
+// Example usage:
+function multiply(x, y) {
+  return x * y;
+}
+
+console.log(processArguments(multiply, 4, 5));      // 20
+console.log(processArguments(Math.max, 1, 3, 7));   // 7
+console.log(processArguments(sumAll, 10, 20, 30));  // 60

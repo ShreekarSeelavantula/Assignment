@@ -1,0 +1,70 @@
+Explanation of this in setTimeout
+🔴 Why user.greetDelayed() Doesn't Work as Expected (Code 1 & 2):
+In both original codes:
+setTimeout(function() {
+  console.log(`Hello, ${this.name}!`);
+}, 1000);
+
+
+
+The function inside setTimeout is a regular function, not bound to the user object. So this inside it refers to the global object (window in browsers), not to user.
+
+Thus, this.name becomes undefined, and you see:
+Hello, undefined!
+
+
+
+
+✅ Storing this in a Variable (e.g., self or that):
+
+const user = {
+  name: "Alice",
+  greetDelayed: function() {
+    const self = this; // preserve reference to `user`
+    setTimeout(function() {
+      console.log(`Hello, ${self.name}!`);
+    }, 1000);
+  }
+};
+
+
+
+
+
+✅ Why Arrow Function Fixes It 
+setTimeout(() => {
+  console.log(`Hello, ${this.name}!`);
+}, 1000);
+Arrow functions don’t have their own this. Instead, they lexically bind this from the surrounding scope. In this case, the surrounding scope is greetDelayed, and in that context, this === user.
+
+
+
+
+Lexical this Binding:
+
+"Lexical" means based on where a function is written in code, not where it's called. Arrow functions inherit this from their outer function scope, preserving the context of the object that owns the method.
+
+ Example – First Fails, Then Works
+ const animal = {
+  species: "Cat",
+  speakLater: function() {
+    setTimeout(function() {
+      console.log(`I am a ${this.species}`);
+    }, 1000);
+  }
+};
+
+animal.speakLater(); // I am a undefined
+
+
+Corrected with Arrow Function:
+const animal = {
+  species: "Cat",
+  speakLater: function() {
+    setTimeout(() => {
+      console.log(`I am a ${this.species}`);
+    }, 1000);
+  }
+};
+
+animal.speakLater(); // I am a Cat

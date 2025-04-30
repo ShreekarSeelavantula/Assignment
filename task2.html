@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this in setTimeout Example</title>
+</head>
+<body>
+
+    <h1>Check the Console for Output</h1>
+
+    <script>
+        const user = {
+            name: "Alice",
+            greetDelayed: function() {
+                setTimeout(function() {
+                    console.log(`Hello, ${this.name}!`);
+                }, 1000);
+            }
+        };
+
+        user.greetDelayed();
+
+        const userWithSelf = {
+            name: "Alice",
+            greetDelayed: function() {
+                const self = this;
+                setTimeout(function() {
+                    console.log(`Hello, ${self.name}!`);
+                }, 1000);
+            }
+        };
+
+        userWithSelf.greetDelayed();
+
+        const userWithArrow = {
+            name: "Alice",
+            greetDelayed: function() {
+                setTimeout(() => {
+                    console.log(`Hello, ${this.name}!`);
+                }, 1000);
+            }
+        };
+
+        userWithArrow.greetDelayed();
+
+        const animal = {
+            species: "Cat",
+            speakLater: function() {
+                setTimeout(function() {
+                    console.log(`I am a ${this.species}`);
+                }, 1000);
+            }
+        };
+
+        animal.speakLater();
+
+        const animalCorrected = {
+            species: "Cat",
+            speakLater: function() {
+                setTimeout(() => {
+                    console.log(`I am a ${this.species}`);
+                }, 1000);
+            }
+        };
+
+        animalCorrected.speakLater();
+    </script>
+
+</body>
+</html>

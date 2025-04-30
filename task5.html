@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Key Iteration</title>
+</head>
+<body>
+
+    <h1>Check the Console for Object Key Iteration Outputs</h1>
+
+    <script>
+        const mixedKeys = {
+            "b": "string key",
+            "2": "numeric string key",
+            "a": "another string key",
+            "1": "another numeric string",
+            "100": "larger numeric string"
+        };
+
+        console.log("for...in output:");
+        for (const key in mixedKeys) {
+            console.log(key); 
+        }
+
+        console.log("Object.keys() output:");
+        console.log(Object.keys(mixedKeys)); 
+    </script>
+
+</body>
+</html>

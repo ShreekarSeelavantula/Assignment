@@ -1,0 +1,11 @@
+Explanation: Hoisting in JavaScript
+Hoisting is JavaScript's behavior of moving declarations (not initializations) to the top of their scope at runtime.
+
+
+Keyword	Hoisted?	Initialized?	Accessible Before Declaration?
+var	✅ Yes	✔ Initialized to undefined	✅ Yes, outputs undefined
+let	✅ Yes	❌ Not initialized	❌ No, causes ReferenceError (TDZ)
+const	✅ Yes	❌ Not initialized	❌ No, causes ReferenceError (TDZ)
+var is hoisted and initialized to undefined. Accessing it before declaration doesn’t throw an error but returns undefined.
+
+let and const are hoisted but not initialized. They remain in a temporal dead zone (TDZ) until their declaration line is executed, so accessing them before declaration throws a ReferenceError.
