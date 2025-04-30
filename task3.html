@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure, createGreeting, and createSecretHolder Examples</title>
+</head>
+<body>
+
+    <h1>Check the Console for Outputs</h1>
+
+    <script>
+        function setupCounter(initialValue) {
+            let count = initialValue;
+
+            function increment() {
+                count++;
+                return count;
+            }
+
+            function decrement() {
+                count--;
+                return count;
+            }
+
+            return {
+                increment: increment,
+                decrement: decrement
+            };
+        }
+
+        const counterOne = setupCounter(5);
+        console.log(counterOne.increment());  
+        console.log(counterOne.increment());  
+        const counterTwo = setupCounter(10);
+        console.log(counterTwo.decrement());  
+        console.log(counterOne.decrement());  
+
+        function createGreeting(greeting) {
+            return function(name) {
+                return `${greeting}, ${name}!`;
+            };
+        }
+
+        const sayHello = createGreeting("Hello");
+        console.log(sayHello("Alice"));  
+        console.log(sayHello("Bob"));    
+
+        const sayHi = createGreeting("Hi");
+        console.log(sayHi("Charlie"));  
+
+        function createSecretHolder(secret) {
+            let hiddenSecret = secret;
+
+            return {
+                getSecret: function() {
+                    return hiddenSecret;
+                },
+                setSecret: function(newSecret) {
+                    hiddenSecret = newSecret;
+                }
+            };
+        }
+
+        const secretHolder = createSecretHolder("top-secret");
+        console.log(secretHolder.getSecret()); 
+        secretHolder.setSecret("classified");
+        console.log(secretHolder.getSecret()); 
+        console.log(secretHolder.hiddenSecret); 
+    </script>
+
+</body>
+</html>

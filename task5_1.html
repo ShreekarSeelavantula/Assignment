@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loop Control Statements</title>
+</head>
+<body>
+
+    <h1>Check the Console for Loop Examples</h1>
+
+    <script>
+        console.log("continue statement example:");
+        for (let i = 1; i <= 5; i++) {
+            if (i === 3) {
+                continue; 
+            }
+            console.log(i);
+        }
+
+        console.log("\nbreak statement example:");
+        for (let i = 1; i <= 5; i++) {
+            if (i === 4) {
+                break; 
+            }
+            console.log(i);
+        }
+
+        console.log("\nLoop from 1 to 20 (with continue & break):");
+        for (let i = 1; i <= 20; i++) {
+            if (i % 5 === 0) {
+                continue; 
+            }
+            if (i > 15) {
+                break; 
+            }
+            console.log(i);
+        }
+
+        console.log("\nChallenge: Array with Conditions:");
+        const numbers = [10, 5, 8, 20, 3, 15, 25];
+
+        for (const num of numbers) {
+            if (num > 12) {
+                console.log("Found a large number!");
+                break;
+            }
+            if (num === 5) {
+                console.log("Skipping 5!");
+                continue;
+            }
+            console.log(num);
+        }
+    </script>
+
+</body>
+</html>

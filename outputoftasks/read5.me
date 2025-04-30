@@ -1,0 +1,53 @@
+Why are properties not logged in the order they were defined?
+In JavaScript, when using for...in or Object.keys() on objects, numeric string keys (like "1", "2", "100") are sorted in ascending numerical order, regardless of the order you added them. Non-numeric string keys retain their insertion order.
+
+This is why your object’s properties may appear out of order when logged.
+
+for...in Behavior with Numeric Keys
+The for...in loop:
+
+Enumerates all enumerable properties, including inherited ones.
+
+Orders numeric keys first (sorted numerically).
+
+Then, includes string keys (in insertion order).
+
+📦 Object.keys() Behavior
+Object.keys(obj):
+
+Returns an array of an object’s own enumerable string keys.
+
+The order:
+
+Numeric keys sorted numerically.
+
+Then, string keys in insertion order.
+
+So in this regard, it's very similar to for...in, except it only includes own properties, not inherited ones.
+
+💡 Example: Mixed Key Object
+
+const mixedKeys = {
+  "b": "string key",
+  "2": "numeric string key",
+  "a": "another string key",
+  "1": "another numeric string",
+  "100": "larger numeric string"
+};
+
+// for...in iteration
+console.log("for...in output:");
+for (const key in mixedKeys) {
+  console.log(key);
+}
+
+// Object.keys() output
+console.log("Object.keys() output:");
+console.log(Object.keys(mixedKeys));
+
+
+
+Why This Happens:
+1, 2, 100 are numeric keys → sorted numerically first.
+
+Then b, a are string keys → shown in insertion order.
