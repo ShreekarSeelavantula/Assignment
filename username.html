@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page with Test Cases</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 40px;
+    }
+    .login-box {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 15px;
+      color: green;
+    }
+    .test-buttons button {
+      background: #007BFF;
+      margin-top: 10px;
+    }
+    .clear {
+      background: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Enter email" />
+    <input type="password" id="password" placeholder="Enter password" />
+    <button onclick="login()">Login</button>
+    <p id="message" class="output"></p>
+
+    <div class="test-buttons">
+      <button onclick="showStoredUsers()">🔍 Show Stored Users</button>
+      <button onclick="clearUsers()" class="clear">🗑 Clear All Users</button>
+      <button onclick="simulateTestCase001()">🧪 Test New User</button>
+      <button onclick="simulateTestCase002()">🧪 Test Existing User</button>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const emailInput = document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+      const message = document.getElementById("message");
+
+      const email = emailInput.value.trim().toLowerCase();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        message.style.color = "red";
+        message.innerText = "Please enter both email and password.";
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      if (users.includes(email)) {
+        message.style.color = "green";
+        message.innerText = "Welcome back!";
+      } else {
+        users.push(email);
+        localStorage.setItem("users", JSON.stringify(users));
+        message.style.color = "blue";
+        message.innerText = "Email not found. New user created.";
+      }
+
+      emailInput.value = "";
+      passwordInput.value = "";
+    }
+
+    function showStoredUsers() {
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      alert("Stored Users:\n" + (users.length ? users.join("\n") : "No users found."));
+    }
+
+    function clearUsers() {
+      localStorage.removeItem("users");
+      document.getElementById("message").innerText = "All users cleared.";
+      document.getElementById("message").style.color = "darkred";
+    }
+
+    function simulateTestCase001() {
+      clearUsers();
+      document.getElementById("email").value = "newuser@example.com";
+      document.getElementById("password").value = "123456";
+      login(); // should say "new user created"
+    }
+
+    function simulateTestCase002() {
+      const email = "existinguser@example.com";
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      if (!users.includes(email)) {
+        users.push(email);
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+      document.getElementById("email").value = email;
+      document.getElementById("password").value = "any";
+      login(); // should say "Welcome back!"
+    }
+  </script>
+</body>
+</html>
